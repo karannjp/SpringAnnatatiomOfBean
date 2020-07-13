@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 @Scope("singleton")
 public class Emp {
@@ -33,6 +36,16 @@ public class Emp {
     }
     public void display(){
         company.companyName();
+    }
+@PostConstruct
+    public  void  dostuff(){
+        System.out.println("init Method Call");
+
+    }
+    @PreDestroy
+    public  void  dodestroy(){
+        System.out.println("Destroy the method");
+
     }
 
 }
